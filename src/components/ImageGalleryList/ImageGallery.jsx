@@ -1,15 +1,17 @@
-import { Component } from 'react'
+import { ImageGalleryItem } from "components/ImageGalleryItem/ImageGalleryItem";
 
-export default class ImageGallery extends Component {
-    state = {
-        loader: false,
-        error: '',
-    }
-  render() {
-    return (
-      <div>ImageGallery</div>
-    )
-  }
-}
+export const ImageGallery = ({ images, openModal}) => {
+  return (
+    <ul>
+      {images.map(image => (
+        <ImageGalleryItem key={image.id} image={image} onClick={openModal}> </ImageGalleryItem>
+      ))}
+    </ul>
+  );
+};
+ 
+
+
+
 
 
