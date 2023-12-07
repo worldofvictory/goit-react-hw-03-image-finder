@@ -20,6 +20,8 @@ export default class Searchbar extends Component {
           return toast.error('🦄 Введи, будь ласка назву');      
      }
     this.props.onSubmit(this.state.query);
+    this.setState({ query: '' });
+
     
 }
       render() {
