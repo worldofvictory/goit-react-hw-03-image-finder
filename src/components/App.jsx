@@ -64,13 +64,13 @@ export default class App extends Component {
 
 
     render() {
-       const { images, isLoadMore, isLoading, url } = this.state;
+       const { isLoadMore, isLoading, url } = this.state;
       return (
         <div>
         
               <Searchbar onSubmit={this.handleSubmit} />
               {isLoading && <Loader />}  
-              <ImageGallery images={this.state.images} />
+              <ImageGallery images={this.state.images} openModal={this.openModal} />
               <ToastContainer autoClose={1000} />  
         {url && <Modal closeModal={this.openModal} url={url} />}
         {isLoadMore && <Button onClick={() => this.handleLoadMore()} />}      
