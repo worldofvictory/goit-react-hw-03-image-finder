@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+import css from "./Modal.module.css"
 
 export class Modal extends Component {
   handleKeyDown = e => {
@@ -24,7 +24,7 @@ export class Modal extends Component {
 
   render() {
     return (
-      <div onClick={this.handleClick}>
+      <div className ={css.modal} onClick={this.handleClick}>
         <img src={this.props.url} alt="modal_img" />
       </div>
     );

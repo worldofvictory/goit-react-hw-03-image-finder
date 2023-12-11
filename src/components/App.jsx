@@ -24,7 +24,7 @@ export default class App extends Component {
     const { query, page } = this.state;
     if (query !== prevState.query || page !== prevState.page) {
       this.setState({ isLoading: true, isLoadMore: false });
-      getImages(query, page)
+      getImages(this.state)
         .then(({ hits: photos, totalHits, hits }) => {
           if (!photos.length) {
             return toast.error(
@@ -64,13 +64,13 @@ export default class App extends Component {
 
 
     render() {
-       const { isLoadMore, isLoading, url } = this.state;
+       const { isLoadMore, isLoading, url, images } = this.state;
       return (
         <div>
         
               <Searchbar onSubmit={this.handleSubmit} />
               {isLoading && <Loader />}  
-              <ImageGallery images={this.state.images} openModal={this.openModal} />
+              <ImageGallery images={images} openModal={this.openModal} />
               <ToastContainer autoClose={1000} />  
         {url && <Modal closeModal={this.openModal} url={url} />}
         {isLoadMore && <Button onClick={() => this.handleLoadMore()} />}      
