@@ -24,7 +24,7 @@ export default class App extends Component {
     const { query, page } = this.state;
     if (query !== prevState.query || page !== prevState.page) {
       this.setState({ isLoading: true, isLoadMore: false });
-      getImages(this.state)
+      getImages(query, page)
         .then(({ hits: photos, totalHits, hits }) => {
           if (!photos.length) {
             return toast.error(
